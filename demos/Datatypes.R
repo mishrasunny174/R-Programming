@@ -41,7 +41,7 @@ dim(sampleNullMatrix) # get dimensions of sampleNullMatrix
 
 attributes(sampleNullMatrix) # get attributes of sampleNullMatrix
 
-sampleMatrix <- matrix(1:6, nrow = 2, ncol = 3) 
+sampleMatrix <- matrix(1:6, nrow = 2, ncol = 3) # optional argument byrow then the vector will break row vice
 print(sampleMatrix)
 
 sampleMatrix2 <- 1:10
