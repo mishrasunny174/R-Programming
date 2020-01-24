@@ -1,4 +1,5 @@
 library(tidyverse)
+library(lattice)
 
 #mpg miles per gallon dataframe
 head(mpg)
@@ -30,6 +31,20 @@ ggplot(dat = mpg, mapping = aes(x=displ, y=hwy)) + geom_smooth(mapping = aes(col
 
 # we can overlay geoms on top of each other to display more information
 
-ggplot(dat = mpg, mapping = aes(x=displ, y=hwy)) + geom_point() + geom_smooth()
+ggplot(data = mpg, mapping = aes(x=displ, y=hwy)) + geom_point() + geom_smooth()
 
 
+# We have other geoms as well
+
+ggplot(data = mpg, mapping = aes(x=displ, y=hwy)) + geom_line() + theme_dark()
+ggplot(data = mpg, mapping = aes(x=displ, y=hwy)) + geom_jitter()
+
+# Bar charts
+
+ggplot(data=diamonds, mapping = aes(x=cut)) + geom_bar(mapping = aes(fill=cut)) + theme_minimal()
+ggplot(data=diamonds, mapping = aes(x=cut)) + geom_bar(mapping = aes(fill=clarity), position = "dodge") + theme_minimal()
+
+# Lattice examples
+
+histogram( ~ cyl, data=mpg)
+xyplot(displ ~ hwy, data=mpg)
